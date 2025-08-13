@@ -1,5 +1,5 @@
 import { test } from "@playwright/test"
-import { LoginPage, Login } from "../support/actions/LoginPage"
+import { LoginPage, Account } from "../support/actions/LoginPage"
 
 let loginPage: LoginPage;
 test.beforeEach(async ({ page }) => {
@@ -8,7 +8,7 @@ test.beforeEach(async ({ page }) => {
 });
 
 test("Deve logar como administrador", async ({ page }) => {
-  const account: Login = {
+  const account: Account = {
     email: "admin@zombieplus.com",
     password: "pwd123",
   };
