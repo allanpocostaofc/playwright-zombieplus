@@ -26,8 +26,8 @@ export class LandingPage {
   }
 
   async submitLeadForm(lead: Lead) {
-    await this.page.getByPlaceholder("Informe seu nome").fill(lead.name);
-    await this.page.getByPlaceholder("Informe seu email").fill(lead.email);
+    await this.page.getByPlaceholder("Seu nome completo").fill(lead.name);
+    await this.page.getByPlaceholder("Seu email principal").fill(lead.email);
 
     await this.page
       .getByTestId("modal")
