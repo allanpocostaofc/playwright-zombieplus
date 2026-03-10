@@ -26,19 +26,13 @@ export class LandingPage {
   }
 
   async submitLeadForm(lead: Lead) {
-    await this.page.getByPlaceholder("Seu nome completo").fill(lead.name);
-    await this.page.getByPlaceholder("Seu email principal").fill(lead.email);
+    await this.page.getByPlaceholder("Informe seu nome").fill(lead.name);
+    await this.page.getByPlaceholder("Informe seu email").fill(lead.email);
 
     await this.page
       .getByTestId("modal")
       .getByText("Quero entrar na fila!")
       .click();
-  }
-
-  async toastHasText(text: string) {
-    const toast = this.page.locator(".toast");
-    await expect(toast).toHaveText(text);
-    await expect(toast).not.toBeVisible({ timeout: 5000 });
   }
 
   async alertHasText(text: string[]) {

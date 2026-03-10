@@ -11,8 +11,8 @@ Este projeto contém testes automatizados para a aplicação ZombiePlus.
 
 O projeto segue o padrão Page Object Model (POM) para melhor organização e manutenção:
 
-- **tests/e2e/**: Contém os cenários de teste (arquivos `.spec.ts`).
-- **tests/support/actions/**: Contém as classes de Page Objects que encapsulam as ações e elementos das páginas.
+- **tests/**: Contém os cenários de teste (arquivos `.spec.ts`).
+- **pages/**: Contém as classes de Page Objects que encapsulam as ações e elementos das páginas.
 - **playwright.config.ts**: Configurações globais do Playwright.
 
 ## Instalação e Dependências
@@ -92,7 +92,7 @@ yarn playwright test --project=chromium
 Executa apenas os testes contidos em um arquivo específico.
 
 ```sh
-yarn playwright test tests/e2e/login.spec.ts
+yarn playwright test tests/login.spec.ts
 ```
 
 ### Executar no modo debug

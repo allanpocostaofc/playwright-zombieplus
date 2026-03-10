@@ -26,14 +26,11 @@ export class LoginPage {
       .locator(".login-form")
       .getByPlaceholder("Senha")
       .fill(account.password);
-    await this.page
-      .locator(".login-form")
-      .getByText("Entrar")
-      .click();
+    await this.page.locator(".login-form").getByText("Entrar").click();
   }
 
-  async isLoggedIn() {
-    await this.page.waitForLoadState("networkidle");
-    await expect(this.page).toHaveURL(/.*admin\/movies/);
+  async alertHaveText(expectedText: string | string[]) {
+    const alert = this.page.locator("span[class$=alert]");
+    await expect(alert).toHaveText(expectedText);
   }
 }
