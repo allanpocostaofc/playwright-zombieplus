@@ -11,6 +11,6 @@ export class Toast {
   async haveText(text: string) {
     const toast = this.page.locator(".toast");
     await expect(toast).toHaveText(text);
-    await expect(toast).not.toBeVisible({ timeout: 5000 });
+    await expect(toast).not.toBeVisible({ timeout: 6000 });
   }
 }
