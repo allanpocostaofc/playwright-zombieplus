@@ -3,28 +3,25 @@ import { LoginPage, Account } from "../pages/LoginPage";
 import { MoviesPage } from "../pages/Movies";
 import { Toast } from "../pages/Components";
 
-let loginPage: LoginPage;
-let moviesPage: MoviesPage;
-let toast: Toast;
-
 test.beforeEach(async ({ page }) => {
-  loginPage = new LoginPage(page);
-  moviesPage = new MoviesPage(page);
-  toast = new Toast(page);
-  loginPage.visit();
+  const loginPage = new LoginPage(page);
+  await loginPage.visit();
 });
 
 test("Deve logar como administrador", async ({ page }) => {
+  const loginPage = new LoginPage(page);
+  const moviesPage = new MoviesPage(page);
   const account: Account = {
     email: "admin@zombieplus.com",
     password: "pwd123",
   };
 
-  await loginPage.submitLoginForm(account);
-  await moviesPage.isLoggedIn();
+  await loginPage.submitLoginForm(account).then(() => moviesPage.isLoggedIn());
 });
 
 test("Não deve logar com senha incorreta", async ({ page }) => {
+  const loginPage = new LoginPage(page);
+  const toast = new Toast(page);
   const account: Account = {
     email: "admin@zombieplus.com",
     password: "wrongpassword",
@@ -38,6 +35,7 @@ test("Não deve logar com senha incorreta", async ({ page }) => {
 });
 
 test("Não deve logar quando o campo email estiver vazio", async ({ page }) => {
+  const loginPage = new LoginPage(page);
   const account: Account = {
     email: "",
     password: "wrongpassword",
@@ -50,6 +48,7 @@ test("Não deve logar quando o campo email estiver vazio", async ({ page }) => {
 });
 
 test("Não deve logar quando o campo senha estiver vazia", async ({ page }) => {
+  const loginPage = new LoginPage(page);
   const account: Account = {
     email: "admin@zombieplus.com",
     password: "",
@@ -62,6 +61,7 @@ test("Não deve logar quando o campo senha estiver vazia", async ({ page }) => {
 });
 
 test("Não deve logar quando nenhum campo estiver preenchido", async ({ page }) => {
+  const loginPage = new LoginPage(page);
   const account: Account = {
     email: "",
     password: "",

@@ -58,7 +58,7 @@ test("Não deve cadastrar um lead com e-mail incorreto", async ({ page }) => {
 
   await landingPage.openModalLead();
   await landingPage.submitLeadForm(lead);
-  await landingPage.alertHasText([MESSAGES.INVALID_EMAIL]);
+  await landingPage.alertHaveText([MESSAGES.INVALID_EMAIL]);
 });
 
 test("Não deve cadastrar um lead sem o campo nome completo", async ({ page }) => {
@@ -71,7 +71,7 @@ test("Não deve cadastrar um lead sem o campo nome completo", async ({ page }) =
 
   await landingPage.openModalLead();
   await landingPage.submitLeadForm(lead);
-  await landingPage.alertHasText([MESSAGES.REQUIRED_FIELD]);
+  await landingPage.alertHaveText([MESSAGES.REQUIRED_FIELD]);
 });
 
 test("Não deve cadastrar um lead sem o campo email", async ({ page }) => {
@@ -84,7 +84,7 @@ test("Não deve cadastrar um lead sem o campo email", async ({ page }) => {
 
   await landingPage.openModalLead();
   await landingPage.submitLeadForm(lead);
-  await landingPage.alertHasText([MESSAGES.REQUIRED_FIELD]);
+  await landingPage.alertHaveText([MESSAGES.REQUIRED_FIELD]);
 });
 
 test("Não deve cadastrar um lead sem nenhum campo preenchido", async ({ page }) => {
@@ -97,5 +97,5 @@ test("Não deve cadastrar um lead sem nenhum campo preenchido", async ({ page })
 
   await landingPage.openModalLead();
   await landingPage.submitLeadForm(lead);
-  await landingPage.alertHasText([MESSAGES.REQUIRED_FIELD, MESSAGES.REQUIRED_FIELD]);
+  await landingPage.alertHaveText([MESSAGES.REQUIRED_FIELD, MESSAGES.REQUIRED_FIELD]);
 });

@@ -35,7 +35,7 @@ export class LandingPage {
       .click();
   }
 
-  async alertHasText(text: string[]) {
+  async alertHaveText(text: string[]) {
     const alert = this.page.getByTestId("modal").locator(".alert");
     await expect(alert).toHaveText(text);
   }
